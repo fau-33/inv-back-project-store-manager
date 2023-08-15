@@ -9,6 +9,6 @@ app.get('/', (_request, response) => {
   response.json({ status: 'Store Manager UP!' });
 });
 
-app.use('/produtcs', productsRoutes);
+app.use('/products', productsRoutes);
 
 module.exports = app;
