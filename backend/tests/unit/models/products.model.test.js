@@ -25,6 +25,20 @@ describe('Testes do PRODUCTS MODEL', function () {
         expect(products).to.be.deep.equal(productsFromDB[0]);
     });
 
+    it('Verifica se é gerado um novo ID ao cadastrar um produto no Banco de Dados', async function () {
+        const productsLength = productsFromDB.length;
+        sinon.stub(connection, 'execute').resolves([{ insertId: productsLength + 1 }]);
+
+        const newProduct = {
+            name: 'ProdutoX',
+          };
+          const newProductId = productsLength + 1;
+          const result = await productsModel.insertProducts(newProduct);
+
+          expect(result).to.be.an('number');
+          expect(result).to.be.deep.equal(newProductId);
+    });
+
     afterEach(function () {
         sinon.restore();
       });

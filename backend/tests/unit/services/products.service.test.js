@@ -40,6 +40,24 @@ describe('Testes do PRODUCTS SERVICE', function () {
         expect(data.message).to.be.equal('Product not found');
     });
 
+    it('Verifica se a estrutura do novo objeto cadastrado está correta', async function () {
+        sinon.stub(productsModel, 'insertProducts').resolves(productsFromDB.length + 1);
+
+        const newProduct = {
+            name: 'ProdutoX',
+          };
+
+          const id = await productsModel.insertProducts(newProduct);
+
+          sinon.stub(productsModel, 'findProduct').resolves({ id, ...newProduct });
+
+          const result = await productsService.insertProducts(newProduct);
+
+          expect(result).to.be.an('object');
+          expect(result.status).to.be.equal('CREATED');
+          expect(result.data).to.be.deep.equal({ id, name: newProduct.name });
+    });
+
     afterEach(function () {
         sinon.restore();
       });

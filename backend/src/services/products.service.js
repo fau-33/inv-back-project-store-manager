@@ -25,7 +25,18 @@ const findProduct = async (productId) => {
       };
 };
 
+const insertProducts = async (product) => {
+    const registerId = await productsModel.insertProducts(product);
+    const newProduct = await productsModel.findProduct(registerId);
+
+    return {
+        status: 'CREATED',
+        data: newProduct,
+      };
+};
+
 module.exports = {
     findAllProducts,
     findProduct,
+    insertProducts,
 };

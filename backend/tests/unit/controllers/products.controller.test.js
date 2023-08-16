@@ -56,6 +56,28 @@ describe('Testes do PRODUCTS CONTROLLER', function () {
       expect(res.json).to.be.calledWith({ message: 'Product not found' });
   });
 
+  it('Verifica se o novo produto foi inserido com sucesso - Status 201', async function () {
+    const newProduct = {
+      id: productsFromDB.length + 1,
+      name: 'ProdutoX',
+    };
+
+    sinon.stub(productsService, 'insertProducts').resolves({ status: 'CREATED', data: newProduct });
+
+    const req = {
+      body: { name: 'ProdutoX' },
+    };
+    const res = {
+      status: sinon.stub().returnsThis(),
+      json: sinon.stub(),
+    };
+
+    await productsController.insertProducts(req, res);
+
+    expect(res.status).to.be.calledWith(201);
+    expect(res.json).to.be.calledWith(newProduct);
+  });
+
   beforeEach(function () {
     sinon.restore();
   });
