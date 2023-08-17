@@ -35,6 +35,15 @@ describe('Testes da SALES MODEL', function () {
         expect(sale).to.be.deep.equal(foundSales[2]);
     });
 
+    it('Verifica uma nova data é inserida na tabela "sale" do Banco de Dados', async function () {
+        sinon.stub(connection, 'execute').resolves([{ insertId: 3 }]);
+
+        const result = await salesModel.insertSaleDate();
+
+        expect(result).to.be.an('number');
+        expect(result).to.be.deep.equal(3);
+    });
+
     afterEach(function () {
         sinon.restore();
       });
