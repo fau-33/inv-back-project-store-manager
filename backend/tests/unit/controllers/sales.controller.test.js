@@ -59,7 +59,7 @@ describe('Testes da SALES CONTROLLER', function () {
     expect(res.json).to.be.calledWith({ message: 'Sale not found' });
   });
 
-  it('Verifica se uma nova "sale" foi criada com sucesso - Status 201', async function () {
+  /* it('Verifica se uma nova "sale" foi criada com sucesso - Status 201', async function () {
     const newSale = {
       id: 3,
       itemsSold: [
@@ -86,7 +86,7 @@ describe('Testes da SALES CONTROLLER', function () {
 
     expect(res.status).to.be.calledWith(201);
     expect(res.json).to.be.calledWith(newSale);
-  });
+  }); */
 
   beforeEach(function () {
     sinon.restore();

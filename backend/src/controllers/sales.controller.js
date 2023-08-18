@@ -14,15 +14,14 @@ const findSale = async (req, res) => {
     return res.status(mapStatusHTTP(status)).json(data);
 };
 
-const insertSale = async (req, res) => {
+/* const insertSale = async (req, res) => {
     const sale = req.body;
     const { status, data } = await salesService.insertSale(sale);
   
     return res.status(mapStatusHTTP(status)).json(data);
-  };
+  }; */
 
 module.exports = {
     findAllSales,
     findSale,
-    insertSale,
 };
