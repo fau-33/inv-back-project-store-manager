@@ -25,7 +25,7 @@ const findSale = async (saleId) => {
   };
 };
 
-/* const insertSale = async (sale) => {
+const insertSale = async (sale) => {
   const saleId = await salesModel.insertSaleDate();
   const updatedSale = sale.map((s) => ({ saleId, ...s }));
   await salesModel.insertSale(updatedSale);
@@ -34,9 +34,10 @@ const findSale = async (saleId) => {
     status: 'CREATED',
     data: { id: saleId, itemsSold: sale },
   };
-}; */
+};
 
 module.exports = {
   findAllSales,
   findSale,
+  insertSale,
 };

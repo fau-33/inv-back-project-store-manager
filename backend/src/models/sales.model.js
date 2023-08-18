@@ -1,6 +1,6 @@
 const camelize = require('camelize');
 const connection = require('../connection');
-// const { handleColumns, handlePlaceholders } = require('../utils/query.products');
+const { handleColumns, handlePlaceholders } = require('../utils/query.products');
 
 const findAllSales = async () => {
     const query = `
@@ -28,15 +28,15 @@ const findSale = async (saleId) => {
   return camelize(sale);
 };
 
-/* const insertSaleDate = async () => {
+const insertSaleDate = async () => {
   const query = 'INSERT INTO sales (date) VALUES (NOW())';
 
   const [{ insertId }] = await connection.execute(query);
 
   return insertId;
-}; */
+};
 
-/* const insertSale = async (sale) => {
+const insertSale = async (sale) => {
   sale.forEach((s) => {
     const columns = handleColumns(s);
     const placeholders = handlePlaceholders(s);
@@ -46,10 +46,12 @@ const findSale = async (saleId) => {
     
     connection.execute(query, [...Object.values(s)]);
   });
-}; */
+};
 
 module.exports = {
     findAllSales,
     findSale,
+    insertSale,
+    insertSaleDate,
     
 };
