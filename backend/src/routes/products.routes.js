@@ -9,4 +9,6 @@ router.get('/:id', productsController.findProduct);
 
 router.post('/', nameValidation, productsController.insertProducts);
 
+router.put('/:id', nameValidation, productsController.updateProduct);
+
 module.exports = router;
