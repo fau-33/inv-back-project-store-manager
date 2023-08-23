@@ -21,15 +21,15 @@ const insertProducts = async (req, res) => {
     return res.status(mapStatusHTTP(status)).json(data);
 };
 
-const updateProduct = async (req, res) => {
+/* const updateProduct = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     const { status, data } = await productsService.updateProducts(Number(id), body);
 
     return res.status(mapStatusHTTP(status)).json(data);
-};
+}; */
 
-const deleteProduct = async (req, res) => {
+/* const deleteProduct = async (req, res) => {
     const { id } = req.params;
     const { status, data } = await productsService.deleteProduct(Number(id));
   
@@ -38,12 +38,11 @@ const deleteProduct = async (req, res) => {
     }
   
     return res.status(mapStatusHTTP(status)).json(data);
-  };
+  }; */
 
 module.exports = {
     findAllProducts,
     findProduct,
     insertProducts,
-    updateProduct,
-    deleteProduct,
+    
 };

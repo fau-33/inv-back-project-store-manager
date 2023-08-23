@@ -35,7 +35,7 @@ const insertProducts = async (product) => {
       };
 };
 
-const updateProducts = async (id, productObj) => {
+/* const updateProducts = async (id, productObj) => {
     const product = await productsModel.findProduct(id);
 
     if (!product) {
@@ -52,9 +52,9 @@ const updateProducts = async (id, productObj) => {
         status: 'SUCCESSFUL',
         data: { id, name },
       };
-};
+}; */
 
-const deleteProduct = async (id) => {
+/* const deleteProduct = async (id) => {
     const product = await productsModel.findProduct(id);
   
     if (!product) {
@@ -69,12 +69,11 @@ const deleteProduct = async (id) => {
     return {
       status: 'DELETED',
     };
-  };
+  }; */
 
 module.exports = {
     findAllProducts,
     findProduct,
     insertProducts,
-    updateProducts,
-    deleteProduct,
+
 };
