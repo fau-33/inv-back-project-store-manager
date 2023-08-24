@@ -54,7 +54,7 @@ const updateProducts = async (id, productObj) => {
       };
 };
 
-/* const deleteProduct = async (id) => {
+const deleteProduct = async (id) => {
     const product = await productsModel.findProduct(id);
   
     if (!product) {
@@ -69,12 +69,13 @@ const updateProducts = async (id, productObj) => {
     return {
       status: 'DELETED',
     };
-  }; */
+  };
 
 module.exports = {
     findAllProducts,
     findProduct,
     insertProducts,
     updateProducts,
+    deleteProduct,
 
 };
