@@ -35,7 +35,7 @@ const insertProducts = async (product) => {
       };
 };
 
-/* const updateProducts = async (id, productObj) => {
+const updateProducts = async (id, productObj) => {
     const product = await productsModel.findProduct(id);
 
     if (!product) {
@@ -52,7 +52,7 @@ const insertProducts = async (product) => {
         status: 'SUCCESSFUL',
         data: { id, name },
       };
-}; */
+};
 
 /* const deleteProduct = async (id) => {
     const product = await productsModel.findProduct(id);
@@ -75,5 +75,6 @@ module.exports = {
     findAllProducts,
     findProduct,
     insertProducts,
+    updateProducts,
 
 };

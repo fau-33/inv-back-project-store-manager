@@ -9,7 +9,7 @@ router.get('/:id', productsController.findProduct);
 
 router.post('/', nameValidation, productsController.insertProducts);
 
-// router.put('/:id', nameValidation, productsController.updateProduct);
+router.put('/:id', nameValidation, productsController.updateProduct);
 
 // router.delete('/:id', productsController.deleteProduct);
 
